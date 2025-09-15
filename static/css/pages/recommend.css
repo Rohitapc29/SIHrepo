@@ -8,23 +8,21 @@
 /*
    1. Form Container
    =========================================
-   This transforms the basic form element into a modern, card-like panel.
 */
 form[method="post"] {
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(20px);
   padding: 2.5rem;
-  border-radius: var(--radius-lg); /* from base.css */
-  box-shadow: var(--shadow-lg); /* from base.css */
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
   border: 1px solid rgba(255, 255, 255, 0.3);
   max-width: 700px;
   margin: 2rem auto 4rem;
-  animation: formSlideUp 0.6s ease-out; /* from style.css */
+  animation: formSlideUp 0.6s ease-out;
   position: relative;
   overflow: hidden;
 }
 
-/* Adds the colored accent bar at the top of the form */
 form[method="post"]::before {
   content: '';
   position: absolute;
@@ -32,7 +30,7 @@ form[method="post"]::before {
   left: 0;
   right: 0;
   height: 4px;
-  background: var(--gradient-primary); /* from base.css */
+  background: var(--gradient-primary);
 }
 
 /*
@@ -40,7 +38,6 @@ form[method="post"]::before {
    =========================================
 */
 
-/* Style for the labels containing the input fields */
 form[method="post"] label {
   display: block;
   margin-top: 1.5rem;
@@ -53,9 +50,6 @@ form[method="post"] label:first-child {
   margin-top: 0;
 }
 
-/* Style for the text and password input fields
-  --- CHANGED: Added input[type="password"] ---
-*/
 form[method="post"] input[type="text"],
 form[method="post"] input[type="password"] {
   width: 100%;
@@ -68,18 +62,12 @@ form[method="post"] input[type="password"] {
   transition: var(--transition);
 }
 
-/* Hover effect for input fields
-  --- CHANGED: Added input[type="password"]:hover ---
-*/
 form[method="post"] input[type="text"]:hover,
 form[method="post"] input[type="password"]:hover {
   border-color: var(--gray-300);
   transform: translateY(-1px);
 }
 
-/* Focus effect for input fields
-  --- CHANGED: Added input[type="password"]:focus ---
-*/
 form[method="post"] input[type="text"]:focus,
 form[method="post"] input[type="password"]:focus {
   outline: none;
@@ -90,7 +78,55 @@ form[method="post"] input[type="password"]:focus {
 }
 
 /*
-   3. Submit Button
+   3. NEW: Dropdown (Select) Styling
+   =========================================
+   Styles for the new location and duration dropdowns.
+*/
+
+/* Resetting the label for dropdowns since floating labels don't apply */
+form[method="post"] label[for="location"],
+form[method="post"] label[for="duration"] {
+    margin-bottom: 0.5rem;
+}
+
+form[method="post"] select {
+  /* --- Base styles to match other inputs --- */
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: var(--transition);
+  cursor: pointer;
+
+  /* --- Custom dropdown arrow --- */
+  /* 1. Remove the default browser arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  /* 2. Add a custom arrow using an SVG background image */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+}
+
+/* Hover state for dropdowns */
+form[method="post"] select:hover {
+  border-color: var(--gray-300);
+}
+
+/* Focus state for dropdowns */
+form[method="post"] select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/*
+   4. Submit Button
    =========================================
 */
 
@@ -111,7 +147,6 @@ form[method="post"] button {
   box-shadow: var(--shadow-md);
 }
 
-/* Shimmer effect on hover */
 form[method="post"] button::before {
   content: '';
   position: absolute;
@@ -136,11 +171,9 @@ form[method="post"] button:active {
   transform: translateY(-1px) scale(0.98);
 }
 
-
 /*
-   4. Existing Styles (from previous answer)
+   5. Results Section Styles
    =========================================
-   Keeping these for the results page.
 */
 
 main.container > h2 {
@@ -171,7 +204,7 @@ main.container > h3::after {
   border-radius: 2px;
 }
 
-.match p:last-of-type {
+.card p:last-of-type {
   display: inline-block;
   margin-top: 1.25rem;
   padding: 0.4rem 0.9rem;
@@ -219,7 +252,6 @@ form[method="get"] button:hover {
   box-shadow: var(--shadow-md);
 }
 
-/* Keyframe animation used by the form */
 @keyframes formSlideUp {
   from {
     opacity: 0;

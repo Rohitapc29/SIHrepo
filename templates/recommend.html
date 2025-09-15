@@ -9,8 +9,66 @@
     <label>Education <input type="text" name="education" required></label>
     <label>Skills (comma separated) <input type="text" name="skills" required></label>
     <label>Interests <input type="text" name="interests"></label>
-    <label>Preferred location <input type="text" name="location"></label>
-    <label>Preferred duration <input type="text" name="duration"></label>
+      <label for="location" style="position: static; font-size: 0.95rem; margin-bottom: 0.5rem;">Preferred Location</label>
+      <select id="location" name="location" required>
+        <option value="" disabled selected>Select a State or UT</option>
+        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+        <option value="Andhra Pradesh">Andhra Pradesh</option>
+        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+        <option value="Assam">Assam</option>
+        <option value="Bihar">Bihar</option>
+        <option value="Chandigarh">Chandigarh</option>
+        <option value="Chhattisgarh">Chhattisgarh</option>
+        <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Goa">Goa</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Haryana">Haryana</option>
+        <option value="Himachal Pradesh">Himachal Pradesh</option>
+        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+        <option value="Jharkhand">Jharkhand</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Kerala">Kerala</option>
+        <option value="Ladakh">Ladakh</option>
+        <option value="Lakshadweep">Lakshadweep</option>
+        <option value="Madhya Pradesh">Madhya Pradesh</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Manipur">Manipur</option>
+        <option value="Meghalaya">Meghalaya</option>
+        <option value="Mizoram">Mizoram</option>
+        <option value="Nagaland">Nagaland</option>
+        <option value="Odisha">Odisha</option>
+        <option value="Puducherry">Puducherry</option>
+        <option value="Punjab">Punjab</option>
+        <option value="Rajasthan">Rajasthan</option>
+        <option value="Sikkim">Sikkim</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Telangana">Telangana</option>
+        <option value="Tripura">Tripura</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="Uttarakhand">Uttarakhand</option>
+        <option value="West Bengal">West Bengal</option>
+      </select>
+
+      <label for="duration" style="position: static; font-size: 0.95rem; margin-bottom: 0.5rem;">Preferred Duration</label>
+      <select id="duration" name="duration" required>
+        <option value="" disabled selected>Select a duration</option>
+        <option value="1 Month">1 Month</option>
+        <option value="2 Months">2 Months</option>
+        <option value="3 Months">3 Months</option>
+        <option value="4 Months">4 Months</option>
+        <option value="5 Months">5 Months</option>
+        <option value="6 Months">6 Months</option>
+      </select>
+
+      <label for="Mode" style="position: static; font-size: 0.95rem; margin-bottom: 0.5rem;">Mode of internship</label>
+      <select id="Mode" name="Mode" required>
+
+        <option value="Offline">Offline</option>
+        <option value="Work from home">Work from home</option>
+
+      </select>
+
     <button type="submit">Recommend</button>
   </form>
 {% endif %}
