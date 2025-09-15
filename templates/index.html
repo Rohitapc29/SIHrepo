@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Home — PM Internship AI{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-inner">
+    <h1>PM Internship-Smart Matches using AI</h1>
+    <p class="lead">We use a lightweight natural-language matching approach to recommend PM internship openings tailored to your profile. Enter your education, skills and interests — our AI will rank the best-fit roles from the dataset.</p>
+    <div class="cta-row">
+      <a class="cta" href="{{ url_for('recommend') }}">Try the recommender</a>
+      <a class="muted" href="{{ url_for('login') }}">Login / Signup</a>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <h2>How it works</h2>
+  <div class="grid-3">
+    <div class="card small">
+      <h3>Data preprocessing</h3>
+      <p>We clean and normalize skills, roles and company info from internship listings so that synonyms like "AI" and "Artificial Intelligence" are treated the same.</p>
+    </div>
+    <div class="card small">
+      <h3>Profile matching</h3>
+      <p>Your education, skills, interests, and location preferences are converted into a weighted text profile using TF-IDF vectors.</p>
+    </div>
+    <div class="card small">
+      <h3>Recommendations</h3>
+      <p>We compute similarity between your profile and internship postings, ranking the best matches and displaying them as simple, neat cards.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-bottom">
+  <h2>Get started</h2>
+  <p>Create a free account and try the recommender now. This is a demo app — no data is saved.</p>
+  <a class="cta" href="{{ url_for('signup') }}">Sign up</a>
+</section>
+{% endblock %}

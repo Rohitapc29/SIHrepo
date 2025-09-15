@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Find Internships{% endblock %}
+{% block content %}
+<h2>Find Internships</h2>
+
+{% if not recommendations %}
+  <!-- Show form only if no recommendations yet -->
+  <form method="post">
+    <label>Education <input type="text" name="education" required></label>
+    <label>Skills (comma separated) <input type="text" name="skills" required></label>
+    <label>Interests <input type="text" name="interests"></label>
+    <label>Preferred location <input type="text" name="location"></label>
+    <label>Preferred duration <input type="text" name="duration"></label>
+    <button type="submit">Recommend</button>
+  </form>
+{% endif %}
+
+{% if recommendations %}
+  <h3>Top Matches</h3>
+  <div class="grid-3">
+    {% for rec in recommendations[:4] %}
+      <div class="card">
+        <h3>{{ rec.role|title }} at {{ rec.company_name }}</h3>
+        <p><strong>Location:</strong> {{ rec.location }}</p>
+        <p><strong>Duration:</strong> {{ rec.duration }} | <strong>Stipend:</strong> ₹{{ rec.stipend_perMonth }}</p>
+        <p><strong>Skills:</strong> {{ rec.skills }}</p>
+        <p><strong>Match:</strong> {{ rec.match_percent }}%</p>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Optional "Find Again" button -->
+  <form method="get">
+    <button type="submit">Find Again</button>
+  </form>
+{% endif %}
+{% endblock %}
