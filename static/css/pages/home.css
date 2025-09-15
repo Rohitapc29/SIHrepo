@@ -1,0 +1,45 @@
+/* =============================================
+   Hero Section Styles
+   ============================================= */
+
+/* Using :root to define CSS Custom Properties (variables).
+  This makes it easy to manage colors and fonts across the entire site.
+*/
+:root {
+  --text-primary: #111;
+  --text-secondary: #444;
+  --font-heading: 'Helvetica', 'Arial', sans-serif; /* Example font stack */
+  --font-weight-bold: 700;
+}
+
+.hero h1 {
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: 2.5rem; /* Stays relative to root font size */
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2; /* Improves readability for multi-line headings */
+  margin-bottom: 0.5em; /* Adds space between the heading and the lead text */
+}
+
+.hero .lead {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  line-height: 1.5; /* Improves readability for paragraphs */
+  max-width: 60ch; /* Limits line length for better readability */
+  margin-inline: auto; /* Centers the text if it's in a wider container */
+}
+
+/* =============================================
+   Responsive Adjustments
+   ============================================= */
+
+/* For tablet screens and below (adjust the max-width as needed) */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem; /* Reduce font size on smaller screens */
+  }
+
+  .hero .lead {
+    font-size: 1.1rem; /* Slightly reduce lead text size */
+  }
+}
